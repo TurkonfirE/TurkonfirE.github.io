@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- 
+  This line tells the browser "this is an HTML5 document"
+  Every HTML file starts with this
+-->
+
+<html lang="en">
+<!-- 
+  <html> is the root element - everything goes inside it
+  lang="en" tells browsers/screen readers this is English
+-->
+
+<head>
+  <!-- 
+    <head> contains metadata - stuff the browser needs but users don't see
+    Think of it as the "settings" section
+  -->
+
+  <meta charset="UTF-8">
+  <!-- 
+    This tells the browser what character encoding to use
+    UTF-8 handles basically all characters (emojis, accents, etc.)
+  -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 
+    This makes your site work on mobile phones
+    Without it, mobile browsers zoom out and everything looks tiny
+  -->
+
+  <title>Sam Jennings | Statistical Consulting</title>
+  <!-- 
+    This is what shows in the browser tab
+  -->
+
+  <link rel="stylesheet" href="style.css">
+  <!-- 
+    This connects your HTML to your CSS file
+    href="style.css" means "look for style.css in the same folder"
+  -->
+</head>
+
+<body>
+  <!-- 
+    <body> is where all visible content goes
+    Everything users see is inside <body>
+  -->
+
+  <!-- HEADER SECTION -->
+  <header>
+    <!-- 
+      <header> is a semantic tag - it means "this is the top/intro section"
+      It helps screen readers and SEO understand your page structure
+    -->
+    <h1>Sam Jennings</h1>
+    <!-- 
+      <h1> is the main heading - biggest text, most important
+      Every page should have exactly one <h1>
+    -->
+
+    <p class="tagline">Statistical Consulting for Small Businesses</p>
+    <!-- 
+      <p> is a paragraph
+      class="tagline" lets us style this specific paragraph differently in CSS
+    -->
+
+    <a href="mailto:samjen@umich.edu" class="cta-button">Get in Touch</a>
+    <!-- 
+      <a> is a link (anchor tag)
+      href="mailto:..." opens the user's email app with your address filled in
+      class="cta-button" lets us style it as a button in CSS
+    -->
+  </header>
+
+  <!-- WHAT I DO SECTION -->
+  <section id="what-i-do">
+    <!-- 
+      <section> groups related content together
+      id="what-i-do" gives this section a unique identifier
+      IDs are used for linking (#what-i-do) and specific CSS styling
+    -->
+
+    <h2>What I Do</h2>
+    <!-- 
+      <h2> is a subheading - second level of importance
+    -->
+
+    <p>
+      I help small businesses understand what's actually driving their performance. 
+      Using statistical analysis, I identify which factors matter, which don't, 
+      and what to optimize. You get clear answers, not guesswork.
+    </p>
+  </section>
+
+  <!-- HOW IT WORKS SECTION -->
+  <section id="how-it-works">
+    <h2>How It Works</h2>
+
+    <div class="steps">
+      <!-- 
+        <div> is a generic container - it groups elements together
+        It has no meaning on its own, just helps with layout/styling
+        class="steps" lets us style all the steps as a group
+      -->
+
+      <div class="step">
+        <span class="step-number">1</span>
+        <!-- 
+          <span> is an inline container (doesn't create a new line)
+          Used for styling small pieces of text within larger elements
+        -->
+        <p>You send me your data (spreadsheet, CSV, etc.)</p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">2</span>
+        <p>I run the analysis using my custom-built statistical pipeline</p>
+      </div>
+
+      <div class="step">
+        <span class="step-number">3</span>
+        <p>You get a clear report with actionable insights</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="pricing">
+    <h2>Services</h2>
+
+    <div class="tiers">
+      <!-- Container for all three pricing tiers -->
+
+      <div class="tier">
+        <h3>Insight Report</h3>
+        <!-- <h3> is third-level heading -->
+
+        <p class="price">$75</p>
+
+        <ul>
+          <!-- 
+            <ul> is an unordered list (bullet points)
+            <ol> would be ordered (numbered)
+          -->
+          <li>Single question answered</li>
+          <!-- <li> is a list item - each bullet point -->
+          <li>Identify key drivers</li>
+          <li>Clear written report</li>
+        </ul>
+      </div>
+
+      <div class="tier featured">
+        <!-- 
+          Two classes: "tier" for shared styling, "featured" to highlight this one
+        -->
+        <h3>Recommendation</h3>
+        <p class="price">$125</p>
+        <ul>
+          <li>Everything in Insight</li>
+          <li>Optimization analysis</li>
+          <li>Specific action plan</li>
+        </ul>
+      </div>
+
+      <div class="tier">
+        <h3>Full Diagnostic</h3>
+        <p class="price">$300</p>
+        <ul>
+          <li>Multiple analyses</li>
+          <li>Complete business review</li>
+          <li>Prioritized recommendations</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <h2>About Me</h2>
+
+    <div class="about-content">
+      <!-- 
+        Uncomment the line below and add your photo to an "images" folder
+        <img src="images/headshot.jpg" alt="Sam Jennings" class="headshot">
+      -->
+      <!-- 
+        <img> displays an image
+        src="..." is the path to the image file
+        alt="..." is text that shows if image fails to load (also for accessibility)
+      -->
+
+      <p>
+        I'm a Data Science student at the University of Michigan. I built my 
+        analysis pipeline from scratch in C++ and Python—automatic model selection, 
+        regularization, and optimization.
+      </p>
+
+      <p>
+        I've spent years teaching complex concepts clearly, from piano lessons 
+        to AP Computer Science tutoring. I bring that same clarity to data analysis: 
+        you'll understand exactly what your numbers mean and what to do about them.
+      </p>
+
+      <p>
+        <strong>Tools I use:</strong> C++, Python, SQL, statistical modeling, 
+        regression analysis, data visualization
+        <!-- <strong> makes text bold -->
+      </p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials">
+    <h2>What Clients Say</h2>
+    <p class="coming-soon">Testimonials coming soon—I'm currently offering free analyses 
+    to my first clients in exchange for feedback.</p>
+    <!-- 
+      Once you have testimonials, replace this with actual quotes
+    -->
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2>Let's Work Together</h2>
+    <p>Have data you want to understand? Reach out.</p>
+    <a href="mailto:samjen@umich.edu" class="cta-button">samjen@umich.edu</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <!-- 
+      <footer> is a semantic tag for the bottom section
+      Usually contains copyright, links, etc.
+    -->
+    <p>&copy; 2025 Sam Jennings</p>
+    <!-- 
+      &copy; is an HTML entity - it displays the © symbol
+      HTML entities start with & and end with ;
+    -->
+  </footer>
+
+</body>
+</html>

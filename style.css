@@ -1,0 +1,508 @@
+/* 
+  CSS = Cascading Style Sheets
+  This file controls how your HTML looks (colors, fonts, spacing, layout)
+  
+  Basic syntax:
+  selector {
+    property: value;
+  }
+  
+  Selectors can be:
+  - Element names: h1, p, div (styles ALL of that element)
+  - Classes: .classname (styles elements with class="classname")
+  - IDs: #idname (styles the ONE element with id="idname")
+*/
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+
+* {
+  /* 
+    * is the universal selector - applies to EVERY element
+    This "reset" makes styling more predictable across browsers
+  */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 
+    box-sizing: border-box means padding/border are included in width
+    Without this, a 100px box with 10px padding becomes 120px (annoying)
+  */
+}
+
+html {
+  scroll-behavior: smooth;
+  /* 
+    Makes anchor links scroll smoothly instead of jumping instantly
+  */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* 
+    font-family lists fonts in order of preference
+    Browser uses the first one it has installed
+    sans-serif is the fallback if none are available
+  */
+
+  line-height: 1.6;
+  /* 
+    line-height controls space between lines of text
+    1.6 = 160% of the font size (very readable)
+  */
+
+  color: #333;
+  /* 
+    color sets text color
+    #333 is dark gray (hex color code)
+    #000 is black, #fff is white
+  */
+
+  background-color: #ffffff;
+}
+
+/* ============================================
+   LAYOUT - CONTAINERS
+   ============================================ */
+
+section {
+  max-width: 800px;
+  /* 
+    max-width prevents content from stretching too wide on big screens
+    Text becomes hard to read when lines are too long
+  */
+
+  margin: 0 auto;
+  /* 
+    margin is space OUTSIDE an element
+    "0 auto" means: 0 on top/bottom, auto (centered) on left/right
+    This is how you center a block element
+  */
+
+  padding: 60px 20px;
+  /* 
+    padding is space INSIDE an element
+    "60px 20px" means: 60px top/bottom, 20px left/right
+  */
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+header {
+  background: linear-gradient(135deg, #1a365d 0%, #2d4a7c 100%);
+  /* 
+    linear-gradient creates a color transition
+    135deg is the angle
+    First color at 0%, second color at 100%
+  */
+
+  color: white;
+  text-align: center;
+  /* 
+    text-align: center centers all text inside this element
+  */
+
+  padding: 80px 20px;
+}
+
+header h1 {
+  /* 
+    This selects h1 elements INSIDE header only
+    Called a "descendant selector"
+  */
+  font-size: 3rem;
+  /* 
+    rem = "root em" - relative to the root font size
+    3rem = 3x the base font size (usually 48px)
+    Using rem makes your site scale well
+  */
+
+  margin-bottom: 10px;
+}
+
+.tagline {
+  /* 
+    Selects elements with class="tagline"
+    The dot (.) indicates a class selector
+  */
+  font-size: 1.3rem;
+  opacity: 0.9;
+  /* 
+    opacity controls transparency
+    1 = fully visible, 0 = invisible
+    0.9 = slightly faded (subtle effect)
+  */
+
+  margin-bottom: 30px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.cta-button {
+  display: inline-block;
+  /* 
+    display controls how an element behaves
+    inline-block: flows with text but can have width/height/padding
+  */
+
+  background-color: #48bb78;
+  /* A nice green color */
+
+  color: white;
+  
+  padding: 15px 30px;
+  
+  text-decoration: none;
+  /* 
+    Removes the underline from links
+  */
+
+  border-radius: 5px;
+  /* 
+    border-radius rounds the corners
+    5px = slight rounding
+    50% would make a circle
+  */
+
+  font-weight: bold;
+  /* 
+    font-weight: bold makes text bold
+    Can also use numbers: 400 = normal, 700 = bold
+  */
+
+  transition: background-color 0.3s ease;
+  /* 
+    transition creates smooth animation when properties change
+    "background-color 0.3s ease" means:
+    - animate the background-color property
+    - over 0.3 seconds
+    - with "ease" timing (starts slow, speeds up, slows down)
+  */
+}
+
+.cta-button:hover {
+  /* 
+    :hover is a pseudo-class
+    Styles apply when user hovers their mouse over the element
+  */
+  background-color: #38a169;
+  /* Darker green on hover */
+}
+
+/* ============================================
+   SECTION HEADINGS
+   ============================================ */
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #1a365d;
+  /* Dark blue - matches the header */
+
+  text-align: center;
+}
+
+/* ============================================
+   HOW IT WORKS - STEPS
+   ============================================ */
+
+.steps {
+  display: flex;
+  /* 
+    display: flex enables "flexbox" layout
+    Makes it easy to arrange items in rows or columns
+    This is the most important layout tool in modern CSS
+  */
+
+  justify-content: space-between;
+  /* 
+    justify-content controls horizontal spacing in flexbox
+    space-between: items spread out with equal space between them
+  */
+
+  gap: 20px;
+  /* 
+    gap adds space between flex items
+    Cleaner than adding margins to each item
+  */
+
+  flex-wrap: wrap;
+  /* 
+    flex-wrap: wrap allows items to move to next line if they don't fit
+    Important for mobile responsiveness
+  */
+}
+
+.step {
+  flex: 1;
+  /* 
+    flex: 1 means "grow to fill available space equally"
+    All three steps will be the same width
+  */
+
+  min-width: 200px;
+  /* 
+    min-width prevents items from getting too small
+    Combined with flex-wrap, makes it responsive
+  */
+
+  text-align: center;
+  padding: 20px;
+  background-color: #f7fafc;
+  /* Very light gray background */
+
+  border-radius: 10px;
+}
+
+.step-number {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: #1a365d;
+  color: white;
+  border-radius: 50%;
+  /* 50% makes it a perfect circle */
+
+  line-height: 40px;
+  /* 
+    Setting line-height equal to height centers text vertically
+    Only works for single-line text
+  */
+
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* ============================================
+   PRICING TIERS
+   ============================================ */
+
+.tiers {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tier {
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  /* 
+    max-width prevents tiers from getting too wide
+  */
+
+  padding: 30px;
+  background-color: #f7fafc;
+  border-radius: 10px;
+  text-align: center;
+
+  border: 2px solid transparent;
+  /* 
+    transparent border - will change on the "featured" tier
+  */
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* 
+    Animate both transform and box-shadow when they change
+  */
+}
+
+.tier:hover {
+  transform: translateY(-5px);
+  /* 
+    transform: translateY moves the element vertically
+    -5px moves it UP by 5 pixels
+    Creates a "lifting" effect on hover
+  */
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* 
+    box-shadow creates a shadow
+    Values: horizontal-offset vertical-offset blur-radius color
+    rgba() is like rgb() but with alpha (transparency)
+    0.1 = 10% opacity (subtle shadow)
+  */
+}
+
+.tier.featured {
+  /* 
+    Selects elements with BOTH "tier" and "featured" classes
+    No space between them means "and"
+  */
+  border-color: #48bb78;
+  background-color: #f0fff4;
+  /* Light green tint */
+}
+
+.tier h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #1a365d;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #48bb78;
+  margin-bottom: 20px;
+}
+
+.tier ul {
+  list-style: none;
+  /* 
+    list-style: none removes bullet points
+  */
+
+  text-align: left;
+}
+
+.tier li {
+  padding: 10px 0;
+  border-bottom: 1px solid #e2e8f0;
+  /* 
+    1px solid creates a thin line
+    #e2e8f0 is a light gray
+  */
+}
+
+.tier li:last-child {
+  /* 
+    :last-child selects only the last li in the list
+    Removes the border from the final item
+  */
+  border-bottom: none;
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.about-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-content p {
+  margin-bottom: 20px;
+}
+
+.headshot {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  /* Makes the image circular */
+
+  object-fit: cover;
+  /* 
+    object-fit: cover ensures the image fills the space
+    without being stretched/distorted
+    It will crop if needed
+  */
+
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* 
+    display: block + auto margins centers an image
+  */
+}
+
+/* ============================================
+   TESTIMONIALS
+   ============================================ */
+
+#testimonials {
+  background-color: #f7fafc;
+}
+
+.coming-soon {
+  text-align: center;
+  font-style: italic;
+  color: #718096;
+  /* Gray text */
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+
+#contact {
+  text-align: center;
+  background-color: #1a365d;
+  color: white;
+}
+
+#contact h2 {
+  color: white;
+}
+
+#contact p {
+  margin-bottom: 20px;
+}
+
+#contact .cta-button {
+  background-color: #48bb78;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #2d3748;
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 600px) {
+  /* 
+    @media queries apply styles only when conditions are met
+    (max-width: 600px) means "when screen is 600px or narrower"
+    This is how you make sites work on phones
+  */
+
+  header h1 {
+    font-size: 2rem;
+    /* Smaller heading on mobile */
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .tiers {
+    flex-direction: column;
+    /* 
+      Changes flex from row to column on mobile
+      Tiers stack vertically instead of horizontally
+    */
+
+    align-items: center;
+  }
+
+  .tier {
+    max-width: 100%;
+    width: 100%;
+  }
+}
