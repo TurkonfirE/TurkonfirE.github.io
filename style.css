@@ -313,23 +313,6 @@ h2 {
   */
 }
 
-.tier:hover {
-  transform: translateY(-5px);
-  /* 
-    transform: translateY moves the element vertically
-    -5px moves it UP by 5 pixels
-    Creates a "lifting" effect on hover
-  */
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  /* 
-    box-shadow creates a shadow
-    Values: horizontal-offset vertical-offset blur-radius color
-    rgba() is like rgb() but with alpha (transparency)
-    0.1 = 10% opacity (subtle shadow)
-  */
-}
-
 .tier.featured {
   /* 
     Selects elements with BOTH "tier" and "featured" classes
